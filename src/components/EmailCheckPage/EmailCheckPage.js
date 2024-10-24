@@ -4,9 +4,8 @@ import { SubmitButton } from '../SubmitButton/SubmitButton.js';
 import { PageWrapper } from '../PageWrapper/PageWrapper.js';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { routes } from '../../routes.js';
 
-export const LandingPage = () => {
+export const EmailCheckPage = () => {
   const navigate = useNavigate();
   const robloxUserNameRegExp = /^(?!_)[a-zA-Z0-9_]{3,20}(?<!_)$/;
 
@@ -19,10 +18,8 @@ export const LandingPage = () => {
     if (isValid) {
       setInputError('');
       setIsLoading(true);
-      setTimeout(() => {
-        setIsLoading(false);
-        navigate(routes.emailCheck)
-      }, 3000);
+      setTimeout(() => setIsLoading(false), 3000);
+      // navigate();
     } else {
       setInputError('User name may consist letters, numbers and underscores only inside the name');
     }
@@ -30,7 +27,7 @@ export const LandingPage = () => {
 
   return (
     <PageWrapper
-      title="Enter your Roblox user name"
+      title="Enter your email to continue"
       description="To proceed with gaming let us know your user name please, we'll check it to give you more oportunities"
     >
       <Box>

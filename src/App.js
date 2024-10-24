@@ -1,14 +1,18 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { LandingPage } from './components/LandingPage/LandingPage';
+import { EmailCheckPage } from './components/EmailCheckPage/EmailCheckPage';
+import { routes } from './routes';
+
+const { landing, emailCheck } = routes;
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: landing,
     element: <LandingPage />,
   },
   {
-    path: '/another',
-    element: <div>Hello another world!</div>,
+    path: emailCheck,
+    element: <EmailCheckPage />,
   },
 ]);
 
