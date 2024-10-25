@@ -1,18 +1,20 @@
 import { Box, TextField, Typography } from '@mui/material';
-import { fontColor } from '../../customStyles.js';
-import { SubmitButton } from '../SubmitButton/SubmitButton.js';
-import { PageWrapper } from '../PageWrapper/PageWrapper.js';
+import { fontColor } from '../customStyles.js';
+import { SubmitButton } from './SubmitButton.js';
+import { PageWrapper } from './PageWrapper.js';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { routes } from '../../routes.js';
-import { content, regExps } from '../../consts.js';
+import { routes } from '../routes.js';
+import { config, content, regExps } from '../consts.js';
 
 export const LandingPage = () => {
   const {
     text: { landingTitle, landingDescription, landingInputLabel },
-    validation: { userName },
+    validation: { userName, userNameNotExt, required },
+    inputs: { robloxErrorName },
   } = content;
-  const { robloxUserNameRegExp } = regExps;
+  const { robloxNameRegExp } = regExps;
+  const { loadingTime } = config;
 
   const navigate = useNavigate();
 
@@ -21,16 +23,19 @@ export const LandingPage = () => {
   const [inputError, setInputError] = useState('');
 
   const onSubmit = () => {
-    const isValid = inputValue.match(robloxUserNameRegExp);
+    const isValid = inputValue.match(robloxNameRegExp);
     if (isValid) {
       setInputError('');
       setIsLoading(true);
       setTimeout(() => {
         setIsLoading(false);
-        navigate(routes.emailCheck);
-      }, 2000);
+
+        inputValue === robloxErrorName
+          ? setInputError(userNameNotExt)
+          : navigate(routes.emailCheck);
+      }, loadingTime);
     } else {
-      setInputError(userName);
+      setInputError(inputValue ? userName : required);
     }
   };
 

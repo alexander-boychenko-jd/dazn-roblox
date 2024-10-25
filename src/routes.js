@@ -3,5 +3,7 @@ export const routes = {
     emailCheck: '/email-check',
     login: '/login',
     forgotPassword: '/forgot-password',
-    signUp: '/sign-up'
+    signUp: '/sign-up',
+    account: '/account',
+    subscription: '/subscription'
 }

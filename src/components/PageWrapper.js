@@ -1,6 +1,6 @@
 import { Box, createTheme, ThemeProvider, Typography } from '@mui/material';
-import { bgColor, fontColor } from '../../customStyles.js';
-import logo from '../../assets/dazn-logo.png';
+import { bgColor, fontColor } from '../customStyles.js';
+import logo from '../assets/dazn-logo.png';
 
 const theme = createTheme({
   palette: {
@@ -50,8 +50,10 @@ export const PageWrapper = ({ children, title, description }) => {
           alignItems="center"
         >
           <Box display="flex" flexDirection="column" gap={2} maxWidth="30%">
-            <Typography variant="h5">{title}</Typography>
-            <Typography variant="body2">{description}</Typography>
+            {title && <Typography variant="h5">{title}</Typography>}
+            {description && (
+              <Typography variant="body2">{description}</Typography>
+            )}
             {children}
           </Box>
         </Box>

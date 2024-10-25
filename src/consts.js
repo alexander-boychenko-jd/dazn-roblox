@@ -2,8 +2,11 @@ export const content = {
   validation: {
     userName:
       'User name may consist letters, numbers and underscores only inside the name',
+    userNameNotExt:
+      'There is no such Roblox user name, please enter a valid name',
     email: 'Please enter a valid email address',
     passwordNorValid: 'Your password is not valid',
+    required: 'Please enter a correct value',
   },
   text: {
     landingTitle: 'Enter your Roblox user name',
@@ -29,9 +32,14 @@ export const content = {
     signUpPasswordInputLabel: 'Choose password',
     signUpCheckbox:
       'Get ocassional emails about special offers, DAZN news and more. Check this box to opt out marketing messages',
+      accountPageTitle: 'DAZN account page',
+      subscriptionPageTitle: 'DAZN subscriptions page'
   },
   inputs: {
-    errorPassword: 'error',
+    errorPassword: 'password_error',
+    loginEmail: 'login@mail.com',
+    signUpEmail: 'signup@mail.com',
+    robloxErrorName: 'roblox_error',
   },
 };
 

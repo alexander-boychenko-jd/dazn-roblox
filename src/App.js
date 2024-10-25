@@ -1,11 +1,13 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { LandingPage } from './components/LandingPage/LandingPage';
-import { EmailCheckPage } from './components/EmailCheckPage/EmailCheckPage';
+import { LandingPage } from './components/LandingPage';
+import { EmailCheckPage } from './components/EmailCheckPage';
 import { routes } from './routes';
-import { LoginPage } from './components/LoginPage/LoginPage';
-import { SignUpPage } from './components/SignUpPage/SignUpPage';
+import { LoginPage } from './components/LoginPage';
+import { SignUpPage } from './components/SignUpPage';
+import { AccountPage } from './components/AccountPage';
+import { SubscriptionPage } from './components/SubscriptionPage';
 
-const { landing, emailCheck, login, signUp } = routes;
+const { landing, emailCheck, login, signUp, account, subscription } = routes;
 
 const router = createBrowserRouter([
   {
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
   {
     path: signUp,
     element: <SignUpPage />,
+  },
+  {
+    path: account,
+    element: <AccountPage />,
+  },
+  {
+    path: subscription,
+    element: <SubscriptionPage />,
   },
 ]);
 

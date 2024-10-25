@@ -1,25 +1,28 @@
 import { Box, TextField, Typography } from '@mui/material';
-import { fontColor } from '../../customStyles.js';
-import { SubmitButton } from '../SubmitButton/SubmitButton.js';
-import { PageWrapper } from '../PageWrapper/PageWrapper.js';
+import { fontColor } from '../customStyles.js';
+import { SubmitButton } from './SubmitButton.js';
+import { PageWrapper } from './PageWrapper.js';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { config, content, regExps } from '../../consts.js';
-import { routes } from '../../routes.js';
+import { config, content, regExps } from '../consts.js';
+import { routes } from '../routes.js';
 
 export const EmailCheckPage = () => {
   const {
     text: { emailTitle, emailDescription, emailInputLabel },
-    validation: { email },
+    validation: { email, required },
+    inputs: { loginEmail, signUpEmail },
   } = content;
   const { loadingTime } = config;
   const { emailRegExp } = regExps;
-  const { login } = routes;
+  const { login, signUp } = routes;
   const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [inputError, setInputError] = useState('');
+
+  const state = { state: { email: inputValue } };
 
   const onSubmit = () => {
     const isValid = inputValue.match(emailRegExp);
@@ -27,11 +30,13 @@ export const EmailCheckPage = () => {
       setInputError('');
       setIsLoading(true);
       setTimeout(() => {
-        navigate(login);
-        setIsLoading(false)
-      }, loadingTime);      
+        setIsLoading(false);
+
+        inputValue === loginEmail && navigate(login, state);
+        inputValue === signUpEmail && navigate(signUp, state);
+      }, loadingTime);
     } else {
-      setInputError(email);
+      setInputError(inputValue ? email : required);
     }
   };
 
