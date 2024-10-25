@@ -2,8 +2,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { LandingPage } from './components/LandingPage/LandingPage';
 import { EmailCheckPage } from './components/EmailCheckPage/EmailCheckPage';
 import { routes } from './routes';
+import { LoginPage } from './components/LoginPage/LoginPage';
+import { SignUpPage } from './components/SignUpPage/SignUpPage';
 
-const { landing, emailCheck } = routes;
+const { landing, emailCheck, login, signUp } = routes;
 
 const router = createBrowserRouter([
   {
@@ -13,6 +15,14 @@ const router = createBrowserRouter([
   {
     path: emailCheck,
     element: <EmailCheckPage />,
+  },
+  {
+    path: login,
+    element: <LoginPage />,
+  },
+  {
+    path: signUp,
+    element: <SignUpPage />,
   },
 ]);
 

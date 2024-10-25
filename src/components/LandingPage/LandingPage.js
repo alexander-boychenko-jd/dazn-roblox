@@ -5,10 +5,16 @@ import { PageWrapper } from '../PageWrapper/PageWrapper.js';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { routes } from '../../routes.js';
+import { content, regExps } from '../../consts.js';
 
 export const LandingPage = () => {
+  const {
+    text: { landingTitle, landingDescription, landingInputLabel },
+    validation: { userName },
+  } = content;
+  const { robloxUserNameRegExp } = regExps;
+
   const navigate = useNavigate();
-  const robloxUserNameRegExp = /^(?!_)[a-zA-Z0-9_]{3,20}(?<!_)$/;
 
   const [isLoading, setIsLoading] = useState(false);
   const [inputValue, setInputValue] = useState('');
@@ -21,21 +27,18 @@ export const LandingPage = () => {
       setIsLoading(true);
       setTimeout(() => {
         setIsLoading(false);
-        navigate(routes.emailCheck)
-      }, 3000);
+        navigate(routes.emailCheck);
+      }, 2000);
     } else {
-      setInputError('User name may consist letters, numbers and underscores only inside the name');
+      setInputError(userName);
     }
   };
 
   return (
-    <PageWrapper
-      title="Enter your Roblox user name"
-      description="To proceed with gaming let us know your user name please, we'll check it to give you more oportunities"
-    >
+    <PageWrapper title={landingTitle} description={landingDescription}>
       <Box>
         <TextField
-          label="Username"
+          label={landingInputLabel}
           variant="filled"
           fullWidth
           style={{

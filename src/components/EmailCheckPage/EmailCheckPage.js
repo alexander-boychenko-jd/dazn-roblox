@@ -4,35 +4,42 @@ import { SubmitButton } from '../SubmitButton/SubmitButton.js';
 import { PageWrapper } from '../PageWrapper/PageWrapper.js';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { config, content, regExps } from '../../consts.js';
+import { routes } from '../../routes.js';
 
 export const EmailCheckPage = () => {
+  const {
+    text: { emailTitle, emailDescription, emailInputLabel },
+    validation: { email },
+  } = content;
+  const { loadingTime } = config;
+  const { emailRegExp } = regExps;
+  const { login } = routes;
   const navigate = useNavigate();
-  const robloxUserNameRegExp = /^(?!_)[a-zA-Z0-9_]{3,20}(?<!_)$/;
 
   const [isLoading, setIsLoading] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [inputError, setInputError] = useState('');
 
   const onSubmit = () => {
-    const isValid = inputValue.match(robloxUserNameRegExp);
+    const isValid = inputValue.match(emailRegExp);
     if (isValid) {
       setInputError('');
       setIsLoading(true);
-      setTimeout(() => setIsLoading(false), 3000);
-      // navigate();
+      setTimeout(() => {
+        navigate(login);
+        setIsLoading(false)
+      }, loadingTime);      
     } else {
-      setInputError('User name may consist letters, numbers and underscores only inside the name');
+      setInputError(email);
     }
   };
 
   return (
-    <PageWrapper
-      title="Enter your email to continue"
-      description="To proceed with gaming let us know your user name please, we'll check it to give you more oportunities"
-    >
+    <PageWrapper title={emailTitle} description={emailDescription}>
       <Box>
         <TextField
-          label="Username"
+          label={emailInputLabel}
           variant="filled"
           fullWidth
           style={{

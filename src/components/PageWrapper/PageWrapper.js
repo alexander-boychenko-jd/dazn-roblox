@@ -6,14 +6,10 @@ const theme = createTheme({
   palette: {
     primary: {
       main: '#FFFFFF',
-      // light: will be calculated from palette.primary.main,
-      // dark: will be calculated from palette.primary.main,
-      // contrastText: will be calculated to contrast with palette.primary.main
     },
     secondary: {
       main: '#0e151b',
       light: '#F5EBFF',
-      // dark: will be calculated from palette.secondary.main,
       contrastText: '#47008F',
     },
   },
@@ -53,7 +49,7 @@ export const PageWrapper = ({ children, title, description }) => {
           justifyContent="center"
           alignItems="center"
         >
-          <Box display="flex" flexDirection="column" gap={2} maxWidth="40%">
+          <Box display="flex" flexDirection="column" gap={2} maxWidth="30%">
             <Typography variant="h5">{title}</Typography>
             <Typography variant="body2">{description}</Typography>
             {children}
