@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/dazn-roblox/static/css/main.e6c13ad2.css",
+    "main.js": "/dazn-roblox/static/js/main.9bf1ae89.js",
+    "static/js/453.a6a97343.chunk.js": "/dazn-roblox/static/js/453.a6a97343.chunk.js",
+    "static/media/dazn-logo.png": "/dazn-roblox/static/media/dazn-logo.17c3f1b06c4207866c8d.png",
+    "index.html": "/dazn-roblox/index.html",
+    "main.e6c13ad2.css.map": "/dazn-roblox/static/css/main.e6c13ad2.css.map",
+    "main.9bf1ae89.js.map": "/dazn-roblox/static/js/main.9bf1ae89.js.map",
+    "453.a6a97343.chunk.js.map": "/dazn-roblox/static/js/453.a6a97343.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.9bf1ae89.js"
+  ]
+}
