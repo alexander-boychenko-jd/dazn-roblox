@@ -9,10 +9,13 @@ export const content = {
     required: 'Please enter a correct value',
   },
   text: {
+    landingVanityTitle: 'DAZN landing page',
+    landingVanityLink: 'Boxing bets',
     landingTitle: 'Enter your Roblox user name',
     landingDescription:
       "To proceed with gaming let us know your user name please, we'll check it to give you more oportunities",
     landingInputLabel: 'Username',
+    signUpLoginText: 'Login / Sign Up',
     emailTitle: 'Enter your email to continue',
     emailDescription:
       "Login with your DAZN account. If you don't have one you will be prompted to create one on a next page",

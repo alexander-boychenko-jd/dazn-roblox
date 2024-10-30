@@ -1,6 +1,6 @@
 import { Button, CircularProgress } from '@mui/material';
 
-export const SubmitButton = ({ disabled = false, onClick, isLoading }) => (
+export const SubmitButton = ({ disabled = false, onClick, isLoading, text }) => (
   <Button
     borderRadius={8}
     style={{
@@ -14,6 +14,6 @@ export const SubmitButton = ({ disabled = false, onClick, isLoading }) => (
     disabled={disabled}
     onClick={onClick}
   >
-    {isLoading ? <CircularProgress color='secondary' /> : 'Continue'}
+    {isLoading ? <CircularProgress color='secondary' /> : (text || 'Continue')}
   </Button>
 );

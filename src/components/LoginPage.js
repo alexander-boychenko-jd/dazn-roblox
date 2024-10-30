@@ -55,10 +55,9 @@ export const LoginPage = () => {
 
       setTimeout(() => {
         setIsLoading(false);
-        inputPasswordValue === errorPassword &&
-          setInputPasswordError(passwordNorValid);
-
-        navigate(account);
+        inputPasswordValue === errorPassword
+          ? setInputPasswordError(passwordNorValid)
+          : navigate(account);
       }, loadingTime);
     }
   };
