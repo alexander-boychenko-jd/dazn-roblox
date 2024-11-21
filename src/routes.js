@@ -1,5 +1,5 @@
 export const routes = {
-    landing: '/landing-page',
+    landing: '/',
     emailCheck: '/email-check',
     login: '/login',
     forgotPassword: '/forgot-password',

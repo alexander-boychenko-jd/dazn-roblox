@@ -23,7 +23,6 @@ export const LandingPage = () => {
   } = content;
   const { robloxNameRegExp } = regExps;
   const { loadingTime } = config;
-  const searchParams = window.location.search;
 
   const navigate = useNavigate();
 
@@ -44,24 +43,14 @@ export const LandingPage = () => {
         if (inputValue === robloxErrorName) {
           setInputError(userNameNotExt);
         } else {
-          assignParameter();
+          setShowModal(false);
+          setShowActionButton(true);
         }
       }, loadingTime);
     } else {
       setInputError(inputValue ? userName : required);
     }
   };
-
-  const assignParameter = () => {
-    const urlParams = new URLSearchParams(searchParams);
-
-    urlParams.set('aref', 'roblox_id_146');
-    window.location.search = urlParams;
-  };
-
-  useEffect(() => {
-    searchParams.match('aref') && setShowActionButton(true);
-  }, [searchParams]);
 
   return (
     <>
